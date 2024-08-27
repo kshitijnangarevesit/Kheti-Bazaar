@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.title{
+    /* margin-bottom: 45%; */
+    display:flex;
+    background-color: #007bff;
+    /* margin-right: 40%; */
+    width: 100%;
+    height: 5rem;
+}
+
+.title--img{
+    height: 4rem;
+    padding:10px;
+}
+.payment-container, .invoice-container {
+    background: #fff;
+    margin-top: 11rem;
+    margin-left: 20rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    height:380px;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+h2, h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #555;
+    margin: 10px 0;
+}
+
+.confirm-payment {
+    margin: 20px 0;
+}
+
+.payment-options label, .confirm-payment label {
+    display: block;
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

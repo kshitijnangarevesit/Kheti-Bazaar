@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="pay.css">
+</head>
+<body>
+    <!-- Payment details section -->
+    <header class ="title">
+        <img class = "title--img" src="download.png">
+        <h2>Welcome to the Payment Gateway.</h2>
+    </header>
+    <div class="payment-container" id="paymentContainer">
+        <h2>Payment Details</h2>
+        <p><strong>Recipient Name:</strong> John Doe</p>
+        <p><strong>Bill Amount:</strong> ₹5</p>
+        
+        <div class="confirm-payment">
+            <label>
+                <input type="checkbox" id="confirmCheckbox">
+                I confirm to proceed with the payment
+            </label>
+        </div>
+        
+        <!-- Payment options form -->
+        <div class="payment-options" id="paymentOptions" style="display: none;">
+            <h3>Select Payment Method</h3>
+            <form id="paymentForm">
+                <label>
+                    <input type="radio" name="paymentMethod" value="Pay Later" checked>
+                    Pay Later
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="Card">
+                    Card
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="Net Banking">
+                    Net Banking
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="Wallet">
+                    Wallet
+                </label>
+                <button type="button" id="payButton">Proceed to Pay</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Payment success message and invoice download link -->
+    <div class="invoice-container" id="invoiceContainer" style="display: none;">
+        <h2>Payment Successful!</h2>
+        <p>Your payment has been processed successfully.</p>
+        <a href="" id="downloadInvoice" download="invoice.pdf">Download Invoice</a>
+    </div>
+
+    <!-- Razorpay JavaScript library -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <!-- JavaScript logic -->
+    <script src="pay.js"></script>
+</body>
+</html>
