@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Homepage</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Nunito, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root{
+            --bg-color: #ffffff;
+            --main-color: #008037;
+            --text-color: #000000;
+            --secondary-color: #2393d2;
+        }
+
+        nav{
+            position: fixed;
+            width: 100vw;
+            height: 3.5rem;
+            background-color: var(--bg-color);
+            border-bottom: 0.5px solid black;
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav img{
+            width: 3rem;
+        }
+
+        nav h1{
+            color: var(--main-color);
+        }
+
+        nav button{
+            height: 2rem;
+            padding: 0px 1.4rem;
+            background-color: var(--main-color);
+            color: #ffffff;
+            border-radius: 1.5rem;
+            transition: 0.3s;
+            border: none;
+            align-content: center;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: .9rem;
+        }
+
+        nav button:hover{
+            color: var(--text-color);
+        }
+
+        body{
+            height: 100vh;
+        }
+
+        main {
+            display: flex;
+            margin: 0;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 15rem;
+            background-color: #f8f8f8;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 3.5rem;
+            bottom: 0;
+            border-right: .5px solid rgb(59, 59, 59);
+        }
+
+        .sidebar button {
+            display: block;
+            width: 100%;
+            padding: 1rem 0;
+            margin: 10px 0;
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: var(--main-color);
+            color: white;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .sidebar_img img{
+            width: 14rem;
+            border-radius: 1rem;
+            border: 2px solid black;
+        }
+
+        .sidebar button:hover{
+            background-color: #1fae09;
+        }
+
+        .sidebar button.active{
+            background-color: #1fae09;
+        }
+
+        .content {
+            margin-left: 16rem;
+            margin-top: 1.5rem;
+            padding: 2rem;
+            width: calc(100% - 16rem);
+        }
+
+        .content-section{
+            flex-wrap: wrap;
+        }
+
+
+        /* generate contract */
+
+        .new_contracts{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        
+.content .card {
+    background-color: #e0e0e0;
+    box-shadow: 6px 8px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
+    width: 20rem;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    
+}
+.card button{
+    background-color: #00b300;
+    box-shadow: 0 0 4px #00b300;
+    border: 1px solid black;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.card button:hover{
+    box-shadow: 0 0 10px #00b300;
+}
+
+        .container {
+            max-width: 600px;
+            margin: 1rem auto;
+            padding: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: left;
+            margin-bottom: 1rem;
+            color: #008037;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        input, select, textarea {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #008037;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005f29;
+        }
+
+        /* contract dashbord */
+
+        .contract-dashboard-buttons {
+            margin-bottom: 1.5rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .sub-content{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .contract-dashboard-buttons button {
+            width: 30%;
+            padding: 0.7rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contract-dashboard-buttons button:hover {
+            background-color: #055cc7;
+        }
+
+        .contract-dashboard-buttons button.active {
+            background-color: #055cc7;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <div>
+                <img src="kheti bazar image.jpg" alt="Kheti Bazaar logo">
+                <h1>Kheti Bazaar</h1>
+            </div>
+            <button>Username</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <button onclick="showContent('new_contracts')" class="active">New Contracts</button>
+            <button onclick="showContent('contract_dashbord')">Contract Dashboard</button>
+            <button onclick="showContent('generate_contract')">Generate Contract</button>
+            <button onclick="showContent('payments')">Payments</button>
+            <div class="sidebar_img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGtYU37W8GJA0n0Cf0ZvspUYqmiyMd561qKA&s" alt="Sidebar Image">
+            </div>
+        </div>
+
+        <div class="content">
+            <div id="new_contracts" class="new_contracts content-section">
+                <h2 style="width: 100vw;">Apply for Contracts</h2>
+                <div class="card">
+                    <div>
+                        <p>Company Name : </p>
+                        <p>Crop Name: </p>
+                        <p>Quantity (in tons): </p>
+                        <p>Quality: </p>
+                        <p>Delivery Timeline: </p>
+                        <p>Discription : </p>
+                    </div>
+                    <button><i class="fa-solid fa-phone"></i>Apply for contract</button>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <p>Company Name : </p>
+                        <p>Crop Name: </p>
+                        <p>Quantity (in tons): </p>
+                        <p>Quality: </p>
+                        <p>Delivery Timeline: </p>
+                        <p>Discription : </p>
+                    </div>
+                    <button><i class="fa-solid fa-phone"></i>Apply for contract</button>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <p>Company Name : </p>
+                        <p>Crop Name: </p>
+                        <p>Quantity (in tons): </p>
+                        <p>Quality: </p>
+                        <p>Delivery Timeline: </p>
+                        <p>Discription : </p>
+                    </div>
+                    <button><i class="fa-solid fa-phone"></i>Apply for contract</button>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <p>Company Name : </p>
+                        <p>Crop Name: </p>
+                        <p>Quantity (in tons): </p>
+                        <p>Quality: </p>
+                        <p>Delivery Timeline: </p>
+                        <p>Discription : </p>
+                    </div>
+                    <button><i class="fa-solid fa-phone"></i>Apply for contract</button>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <p>Company Name : </p>
+                        <p>Crop Name: </p>
+                        <p>Quantity (in tons): </p>
+                        <p>Quality: </p>
+                        <p>Delivery Timeline: </p>
+                        <p>Discription : </p>
+                    </div>
+                    <button><i class="fa-solid fa-phone"></i>Apply for contract</button>
+                </div>
+
+
+
+                <div class="card">
+                    <div>
+                        <p>Company Name : </p>
+                        <p>Crop Name: </p>
+                        <p>Quantity (in tons): </p>
+                        <p>Quality: </p>
+                        <p>Delivery Timeline: </p>
+                        <p>Discription : </p>
+                    </div>
+                    <button><i class="fa-solid fa-phone"></i>Apply for contract</button>
+                </div>
+
+
+                <div class="card">
+                    <div>
+                        <p>Company Name : </p>
+                        <p>Crop Name: </p>
+                        <p>Quantity (in tons): </p>
+                        <p>Quality: </p>
+                        <p>Delivery Timeline: </p>
+                        <p>Discription : </p>
+                    </div>
+                    <button><i class="fa-solid fa-phone"></i>Apply for contract</button>
+                </div>
+
+            </div>
+
+
+            <div id="contract_dashbord" class="content-section" style="display:none;">
+                <h2 style="width: 100vw;">Contract Dashboard</h2>
+                <div class="contract-dashboard-buttons">
+                    <button onclick="showSubContent('active_contracts')" class="active">Active Contracts</button>
+                    <button onclick="showSubContent('applications')">Pending Contracts</button>
+                    <button onclick="showSubContent('history')">Contract History</button>
+                </div>
+
+                <div id="active_contracts" class="sub-content">
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>payment status : </p>
+                        </div>
+                        <button>Show Contract</button>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>payment status : </p>
+                        </div>
+                        <button>Show Contract</button>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>payment status : </p>
+                        </div>
+                        <button>Show Contract</button>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>payment status : </p>
+                        </div>
+                        <button>Show Contract</button>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>payment status : </p>
+                        </div>
+                        <button>Show Contract</button>
+                    </div>
+
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>payment status : </p>
+                        </div>
+                        <button>Show Contract</button>
+                    </div>
+
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>payment status : </p>
+                        </div>
+                        <button>Show Contract</button>
+                    </div>
+                </div>
+                
+                <div id="applications" class="sub-content" style="display:none;">
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>Status : Pending </p>
+                        </div>
+                        <button>Show Contract</button>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>Status : Pending </p>
+                        </div>
+                        <button>Show Contract</button>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>Status : Pending </p>
+                        </div>
+                        <button>Show Contract</button>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>Status : Pending </p>
+                        </div>
+                        <button>Show Contract</button>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>Status : Pending </p>
+                        </div>
+                        <button>Show Contract</button>
+                    </div>
+                </div>
+                
+                <div id="history" class="sub-content" style="display:none;">
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>Status : Completed </p>
+                            <p>Ratings :</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>Status : Completed </p>
+                            <p>Ratings :</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>Status : Completed </p>
+                            <p>Ratings :</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>Status : Completed </p>
+                            <p>Ratings :</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <p>Company Name : </p>
+                            <p>Crop Name: </p>
+                            <p>Quantity (in tons): </p>
+                            <p>Delivery Timeline: </p>
+                            <p>Status : Completed </p>
+                            <p>Ratings :</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="generate_contract" class="content-section" style="display:none;">
+                <div class="container">
+                    <h2>Generate Contract</h2>
+                    <form action="/submit-contract" method="POST">
+                        <label for="crop">Crop Name:</label>
+                        <input type="text" id="crop" name="crop" placeholder="Enter the crop name" required>
+            
+                        <label for="quantity">Quantity (in tons):</label>
+                        <input type="number" id="quantity" name="quantity" placeholder="Enter the quantity required" required>
+            
+                        <label for="quality">Quality:</label>
+                        <input type="text" id="quality" name="quality" placeholder="Enter the quality standard" required>
+            
+                        <label for="timeline">When do you need it? (Delivery Timeline):</label>
+                        <input type="date" id="timeline" name="timeline" required>
+            
+                        <label for="location">Location:</label>
+                        <input type="text" id="location" name="location" placeholder="Enter the delivery location" required>
+            
+                        <label for="Add_Discription">Add Discription</label>
+                        <textarea id="Add_Discription" name="Add_Discription" rows="3" placeholder="Enter anything else you want to mention" required></textarea>
+            
+                        <input type="submit" value="Generate Contract">
+                    </form>
+                </div>
+            </div>
+
+            <div id="payments" class="content-section" style="display:none;">
+                <h2>Payments</h2>
+                <p>Details about payments...</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showContent(section) {
+            // Hide all content sections
+            document.querySelectorAll('.content-section').forEach((el) => {
+                el.style.display = 'none';
+            });
+            // Show the selected content section
+            document.getElementById(section).style.display = 'flex';
+
+            // Remove active class from all buttons
+            document.querySelectorAll('.sidebar button').forEach((button) => {
+                button.classList.remove('active');
+            });
+            // Add active class to the clicked button
+            event.target.classList.add('active');
+        }
+
+        function showSubContent(subSection) {
+            // Hide all sub-content sections
+            document.querySelectorAll('.sub-content').forEach((el) => {
+                el.style.display = 'none';
+            });
+            // Show the selected sub-content section
+            document.getElementById(subSection).style.display = 'flex';
+
+            // Remove active class from all sub-content buttons
+            document.querySelectorAll('.contract-dashboard-buttons button').forEach((button) => {
+                button.classList.remove('active');
+            });
+            // Add active class to the clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
