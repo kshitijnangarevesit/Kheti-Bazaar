@@ -1,0 +1,70 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #e9f5e9;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(AGRI.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 2px solid #d4d4d4;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.search-bar input[type="text"]:focus {
+    border-color: #76c893;
+    outline: none;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-btn {
+    background-color: #76c893;
+    color: #ffffff;
+}
+
+.browse-btn {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.btn:hover {
+    background-color: #66a583;
+    transform: scale(1.05);
+}
+
+.browse-btn:hover {
+    background-color: #388e3c;
+    transform: scale(1.05);
+}

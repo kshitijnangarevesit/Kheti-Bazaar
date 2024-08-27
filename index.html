@@ -3,58 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard UI</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Browse Farmers and Companies</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="sidebar">
-        <h2>DashBoard</h2>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Contracts</a></li>
-            <li><a href="#">Calendar</a></li>
-            <li><a href="#">Settings</a></li>
-        </ul>
-    </div>
-    <div class="main-content">
-        <div class="top-bar">
-            <input type="search" placeholder="Search">
-            <div class="user-info">
-                <button class="new-btn">+</button>
-                <span class="user-name">Name</span>
-            </div>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button class="btn search-btn">Search</button>
+            <button class="btn browse-btn" id="browseFarmers">Browse Farmers</button>
+            <button class="btn browse-btn" id="browseCompanies">Browse Companies</button>
         </div>
-        <div class="content">
-            <div class="contracts-section">
-                <h3>Contracts</h3>
-                <div class="contracts">
-                    <div class="contract-card">
-                        <h4>Company 1</h4>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 60%;"></div>
-                        </div>
-                        <div class="contract-details">
-                            <p>60% Complete</p>
-                            <p>2 Days Left</p>
-                        </div>
-                    </div>
-                    <!-- Add more contract cards as needed -->
-                </div>
-            </div>
-            <div class="messages-section">
-                <h3>Client Messages</h3>
-                <div class="message">
-                    <h4>Stephanie</h4>
-                    <p>I got your first assignment. It was quite good. We can continue with the next assignment.</p>
-                    <span>Dec 12</span>
-                </div>
-                <div class="message">
-                    <h4>Jessica</h4>
-                    <p>I am really impressed! Can’t wait to see the final result.</p>
-                    <span>Dec 11</span>
-                </div>
-            </div>
-        </div>
+        <!-- Content for farmers and companies will go here -->
     </div>
 </body>
 </html>
