@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer's Profile</title>
+    <style>
+        /* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* Header Styles */
+.profile-header {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.background-image {
+    background-image: url('https://optcms.s3.ca-central-1.amazonaws.com/www.indiavsdisinformation.com/2023/202302/20230226-wsfl20230227131as.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    filter: brightness(0.5);
+}
+
+.profile-image {
+    position: absolute;
+    size: 12rem;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid white;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.profile-description {
+    margin-top: -20px;
+    background-color: rgb(150, 192, 203);
+    color: black;
+    height: 10rem;
+}
+
+.profile-description h1 {
+    font-size: 2rem;
+}
+
+.profile-description p {
+    font-size: 1.5rem;
+    margin: 20px 40px; 
+}
+
+/* Farmer Details Section */
+.farmer-details {
+    margin-top: -20px;
+    padding: 20px;
+    background-color: rgb(150, 192, 203);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.farmer-details h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #060b06;
+}
+
+.details-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.detail-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    text-align: left;
+}
+
+.detail-item h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.detail-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.crops-section {
+    margin-top: -20px;
+    padding: 20px;
+    background-color: rgb(150, 192, 203);
+    text-align: center;
+    position: relative;
+}
+
+.crops-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #060b06;
+}
+
+.crop-slider {
+    position: relative;
+    width: 70%;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.crop-card {
+    min-width: 100%;
+    display: none;
+    transition: opacity 0.5s ease;
+    text-align: center;
+}
+
+.crop-card.active {
+    display: block;
+}
+
+.crop-card img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.crop-card h3 {
+    margin: 10px 0;
+    color: #030202;
+}
+
+.crop-card p {
+    padding: 0 15px 15px;
+    font-size: 1rem;
+    color: #666;
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 2rem;
+    z-index: 1000;
+}
+
+.left-button {
+    left: 5%; /* Positioned outside the card area */
+}
+
+.right-button {
+    right: 5%; /* Positioned outside the card area */
+}
+
+.slider-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Edit and Save Buttons */
+.edit-button, .save-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button i, .save-button i {
+    font-size: 1.2rem;
+}
+
+.edit-button:hover, .save-button:hover {
+    background-color: #45a049;
+}
+
+/* Editable content styles */
+.detail-item p[contenteditable="true"], 
+.crop-card h3[contenteditable="true"], 
+.crop-card p[contenteditable="true"] {
+    border: 1px dashed #4CAF50;
+    padding: 5px;
+}
+
+.status {
+    border: none;
+    color: #666;
+}
+
+/* Ensuring non-editable fields are styled accordingly */
+[contenteditable="false"], [data-editable="false"] {
+    cursor: not-allowed;
+}
+
+    </style>
+</head>
+<body>
+    <header class="profile-header">
+        <div class="background-image"></div>
+        <div class="profile-image">
+            <img src="rajesh kumar.jpg" alt="Farmer">
+        </div>
+        <div class="profile-description">
+            <h1>Rajesh Kumar</h1>
+            <p>Experienced farmer dedicated to sustainable agriculture and organic farming practices. Cultivating a variety of crops to support local communities and promote healthy living.</p>
+        </div>
+    </header>
+    <section class="farmer-details">
+        <h2>
+            Farmer Details
+            <button class="edit-button" onclick="editDetails()">
+                <i class="fas fa-edit"></i> <!-- Edit icon -->
+            </button>
+            <button class="save-button" onclick="saveDetails()" style="display: none;">
+                <i class="fas fa-save"></i> <!-- Save icon -->
+            </button>
+        </h2>
+        <div class="details-grid">
+            <div class="detail-item">
+                <h3>Experience</h3>
+                <p contenteditable="false">10 years of sustainable farming practices and crop rotation.</p>
+            </div>
+            <div class="detail-item">
+                <h3>Age</h3>
+                <p contenteditable="false">45 years</p>
+            </div>
+            <div class="detail-item">
+                <h3>Address</h3>
+                <p contenteditable="false">123 Green Acres, Countryside, State, Country</p>
+            </div>
+            <div class="detail-item">
+                <h3>Field Details</h3>
+                <p contenteditable="false">50 acres of fertile land with rich soil, equipped with modern irrigation systems for efficient water management.</p>
+            </div>
+            <div class="detail-item">
+                <h3>Contact Details</h3>
+                <p contenteditable="false">+1 234 567 8900 | farmer@example.com</p>
+            </div>
+            <div class="detail-item">
+                <h3>Bank Details Updated?</h3>
+                <p class="status" data-editable="false">Yes</p>
+            </div>
+            <div class="detail-item">
+                <h3>Aadhaar Details Updated?</h3>
+                <p class="status" data-editable="false">No</p>
+            </div>
+            <div class="detail-item">
+                <h3>Document Submitted?</h3>
+                <p class="status" data-editable="false">Yes</p>
+            </div>
+        </div>
+    </section>
+    <section class="crops-section">
+        <h2>Crops Grown <button class="edit-button" onclick="editCrops()">Edit</button></h2>
+        <div class="crop-slider">
+            <div class="crop-card active">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Vehn%C3%A4pelto_6.jpg" alt="Wheat">
+                <h3 contenteditable="false">Wheat</h3>
+                <p contenteditable="false">High-quality wheat grown using sustainable methods to ensure a healthy yield and nutritious flour for baking and cooking.</p>
+            </div>
+            <div class="crop-card">
+                <img src="https://ik.imagekit.io/386ptwjko5s/wp-content/uploads/2021/01/rice-cultivation-in-india.jpg" alt="Corn">
+                <h3 contenteditable="false">Rice</h3>
+                <p contenteditable="false">Discover the taste of pure, high-quality rice with our Premium Organic Rice. Grown in the lush, fertile fields of [origin location, e.g., the Himalayan foothills], our rice is carefully cultivated using sustainable farming practices, ensuring the best for your health and the environment.</p>
+            </div>
+            <div class="crop-card">
+                <img src="https://i0.wp.com/blog.bijak.in/wp-content/uploads/2023/05/MAIZE-02.png?resize=940%2C519&ssl=1" alt="Maize">
+                <h3 contenteditable="false">Maize</h3>
+                <p contenteditable="false">Experience the freshness of farm-grown maize, handpicked and delivered straight to your doorstep. Our commitment to quality and freshness means you get the best maize, perfect for all your culinary needs</p>
+            </div>
+        </div>
+        <button class="slider-button left-button" onclick="prevSlide()">&#10094;</button>
+        <button class="slider-button right-button" onclick="nextSlide()">&#10095;</button>
+    </section>
+    
+
+    <script>
+        let currentSlide = 0;
+const slides = document.querySelectorAll('.crop-card');
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Initialize the first slide
+showSlide(currentSlide);
+
+function editDetails() {
+    const editableDetails = document.querySelectorAll('.farmer-details .detail-item p:not(.status)');
+    const statusDetails = document.querySelectorAll('.farmer-details .detail-item p.status');
+    
+    editableDetails.forEach(detail => {
+        detail.setAttribute('contenteditable', 'true');
+    });
+
+    // Set the status details as editable
+    statusDetails.forEach(status => {
+        status.setAttribute('contenteditable', 'true');
+        status.classList.add('editable-status');
+    });
+
+    document.querySelector('.farmer-details .edit-button').style.display = 'none';
+    document.querySelector('.farmer-details .save-button').style.display = 'inline-block';
+}
+
+function saveDetails() {
+    const editableDetails = document.querySelectorAll('.farmer-details .detail-item p:not(.status)');
+    const statusDetails = document.querySelectorAll('.farmer-details .detail-item p.status');
+    
+    editableDetails.forEach(detail => {
+        detail.setAttribute('contenteditable', 'false');
+    });
+
+    // Set the status details as non-editable
+    statusDetails.forEach(status => {
+        status.setAttribute('contenteditable', 'false');
+        status.classList.remove('editable-status');
+    });
+
+    document.querySelector('.farmer-details .edit-button').style.display = 'inline-block';
+    document.querySelector('.farmer-details .save-button').style.display = 'none';
+}
+
+
+function editCrops() {
+    const cropHeaders = document.querySelectorAll('.crop-card h3');
+    const cropDescriptions = document.querySelectorAll('.crop-card p');
+    
+    cropHeaders.forEach(header => {
+        header.setAttribute('contenteditable', 'true');
+    });
+
+    cropDescriptions.forEach(description => {
+        description.setAttribute('contenteditable', 'true');
+    });
+
+    document.querySelector('.crops-section .edit-button').style.display = 'none';
+    document.querySelector('.crops-section .save-button').style.display = 'inline-block';
+}
+
+function saveCrops() {
+    const cropHeaders = document.querySelectorAll('.crop-card h3');
+    const cropDescriptions = document.querySelectorAll('.crop-card p');
+    
+    cropHeaders.forEach(header => {
+        header.setAttribute('contenteditable', 'false');
+    });
+
+    cropDescriptions.forEach(description => {
+        description.setAttribute('contenteditable', 'false');
+    });
+
+    document.querySelector('.crops-section .edit-button').style.display = 'inline-block';
+    document.querySelector('.crops-section .save-button').style.display = 'none';
+}
+
+
+    </script>
+</body>
+</html>
