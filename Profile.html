@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer's Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <header class="profile-header">
+        <div class="background-image"></div>
+        <div class="profile-image">
+            <img src="rajesh kumar.jpg" alt="Farmer">
+        </div>
+        <div class="profile-description">
+            <h1>Rajesh Kumar</h1>
+            <p>Experienced farmer dedicated to sustainable agriculture and organic farming practices. Cultivating a variety of crops to support local communities and promote healthy living.</p>
+        </div>
+    </header>
+    <section class="farmer-details">
+        <h2>
+            Farmer Details
+            <button class="edit-button" onclick="editDetails()">
+                <i class="fas fa-edit"></i> <!-- Edit icon -->
+            </button>
+            <button class="save-button" onclick="saveDetails()" style="display: none;">
+                <i class="fas fa-save"></i> <!-- Save icon -->
+            </button>
+        </h2>
+        <div class="details-grid">
+            <div class="detail-item">
+                <h3>Experience</h3>
+                <p contenteditable="false">10 years of sustainable farming practices and crop rotation.</p>
+            </div>
+            <div class="detail-item">
+                <h3>Age</h3>
+                <p contenteditable="false">45 years</p>
+            </div>
+            <div class="detail-item">
+                <h3>Address</h3>
+                <p contenteditable="false">123 Green Acres, Countryside, State, Country</p>
+            </div>
+            <div class="detail-item">
+                <h3>Field Details</h3>
+                <p contenteditable="false">50 acres of fertile land with rich soil, equipped with modern irrigation systems for efficient water management.</p>
+            </div>
+            <div class="detail-item">
+                <h3>Contact Details</h3>
+                <p contenteditable="false">+1 234 567 8900 | farmer@example.com</p>
+            </div>
+            <div class="detail-item">
+                <h3>Bank Details Updated?</h3>
+                <p class="status" data-editable="false">Yes</p>
+            </div>
+            <div class="detail-item">
+                <h3>Aadhaar Details Updated?</h3>
+                <p class="status" data-editable="false">No</p>
+            </div>
+            <div class="detail-item">
+                <h3>Document Submitted?</h3>
+                <p class="status" data-editable="false">Yes</p>
+            </div>
+        </div>
+    </section>
+    <section class="crops-section">
+        <h2>Crops Grown <button class="edit-button" onclick="editCrops()">Edit</button></h2>
+        <div class="crop-slider">
+            <div class="crop-card active">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Vehn%C3%A4pelto_6.jpg" alt="Wheat">
+                <h3 contenteditable="false">Wheat</h3>
+                <p contenteditable="false">High-quality wheat grown using sustainable methods to ensure a healthy yield and nutritious flour for baking and cooking.</p>
+            </div>
+            <div class="crop-card">
+                <img src="https://ik.imagekit.io/386ptwjko5s/wp-content/uploads/2021/01/rice-cultivation-in-india.jpg" alt="Corn">
+                <h3 contenteditable="false">Rice</h3>
+                <p contenteditable="false">Discover the taste of pure, high-quality rice with our Premium Organic Rice. Grown in the lush, fertile fields of [origin location, e.g., the Himalayan foothills], our rice is carefully cultivated using sustainable farming practices, ensuring the best for your health and the environment.</p>
+            </div>
+            <div class="crop-card">
+                <img src="https://i0.wp.com/blog.bijak.in/wp-content/uploads/2023/05/MAIZE-02.png?resize=940%2C519&ssl=1" alt="Maize">
+                <h3 contenteditable="false">Maize</h3>
+                <p contenteditable="false">Experience the freshness of farm-grown maize, handpicked and delivered straight to your doorstep. Our commitment to quality and freshness means you get the best maize, perfect for all your culinary needs</p>
+            </div>
+        </div>
+        <button class="slider-button left-button" onclick="prevSlide()">&#10094;</button>
+        <button class="slider-button right-button" onclick="nextSlide()">&#10095;</button>
+    </section>
+    
+
+    <script src="profile.js"></script>
+</body>
+</html>
