@@ -15,8 +15,8 @@
         }
 
         :root{
-            --bg-color: #ffffff;
-            --main-color: #008037;
+            --bg-color: #f4f6f9;
+            --main-color: #32CD32;;
             --text-color: #000000;
             --secondary-color: #2393d2;
         }
@@ -67,6 +67,7 @@
 
         body{
             height: 100vh;
+            background-color: #f4f6f9;
         }
 
         main {
@@ -83,15 +84,14 @@
             position: fixed;
             top: 3.5rem;
             bottom: 0;
-            border-right: .5px solid rgb(59, 59, 59);
         }
 
         .sidebar button {
             display: block;
             width: 100%;
             padding: 1rem 0;
+            border: none;
             margin: 10px 0;
-            border: 2px solid black;
             border-radius: 5px;
             cursor: pointer;
             background-color: var(--main-color);
@@ -103,7 +103,6 @@
         .sidebar_img img{
             width: 14rem;
             border-radius: 1rem;
-            border: 2px solid black;
         }
 
         .sidebar button:hover{
@@ -135,9 +134,8 @@
 
         
 .content .card {
-    background-color: #e0e0e0;
-    box-shadow: 6px 8px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid black;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 20rem;
     padding: 1rem;
     margin: 1rem;
@@ -148,10 +146,12 @@
     
 }
 .card button{
-    background-color: #00b300;
+    background-color: var(--main-color);
+    border: none;
     box-shadow: 0 0 4px #00b300;
-    border: 1px solid black;
-    color: white;
+    color: black;
+    font-size: .8rem;
+    font-weight: 550;
     padding: 10px 20px;
     margin-top: 4px;
     border-radius: 5px;
