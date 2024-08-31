@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - Kheti Bazaar</title>
+    <link rel="stylesheet" href="logout.css">
+</head>
+<body>
+    <div class="logout-container">
+        <h2>Are you sure you want to logout?</h2>
+        <button onclick="confirmLogout()">Yes, Logout</button>
+        <a href="admin.html">Cancel</a>
+    </div>
+
+    <script>
+        function confirmLogout() {
+            // Redirect to Thank You page
+            window.location.href = 'thank-you.html';
+        }
+    </script>
+</body>
+</html>
