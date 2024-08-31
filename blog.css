@@ -1,0 +1,166 @@
+/* General Reset */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header */
+.blog-header {
+    background-color: #4a6f41;
+    color: #fff;
+    padding: 2rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blog-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.blog-nav {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.blog-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.blog-nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+.blog-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.blog-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+.blog-content {
+    display: flex;
+    margin-top: 2rem;
+    gap: 2rem;
+}
+
+.blog-posts {
+    flex: 3;
+}
+
+.blog-post {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.blog-post h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.blog-post a {
+    color: #4a6f41;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.blog-post a:hover {
+    text-decoration: underline;
+}
+
+.blog-post img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.blog-post .post-meta {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.blog-post .read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #4a6f41;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.blog-post .read-more:hover {
+    text-decoration: underline;
+}
+
+/* Sidebar */
+.blog-sidebar {
+    flex: 1;
+}
+
+.sidebar-widget {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.sidebar-widget h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar-widget ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-widget ul li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-widget ul li a {
+    text-decoration: none;
+    color: #4a6f41;
+    font-weight: bold;
+}
+
+.sidebar-widget ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.blog-footer {
+    background-color: #4a6f41;
+    color: #fff;
+    padding: 1.5rem 0;
+    text-align: center;
+    margin-top: 2rem;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
