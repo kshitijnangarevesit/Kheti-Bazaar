@@ -1,0 +1,40 @@
+/* thankyou.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f5f0; /* Light green background for an agriculture theme */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.thank-you-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+.thank-you-container h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.thank-you-container p {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.thank-you-container a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.thank-you-container a:hover {
+    text-decoration: underline;
+}
