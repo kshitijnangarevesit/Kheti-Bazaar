@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Details</title>
+    <link rel="stylesheet" href="track.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Delivery Details</h1>
+        <div class="delivery-info">
+            <div class="detail">
+                <strong>Delivery Number:</strong> 
+                <span id="delivery-number">123456789</span>
+                <button class="copy-button" id="copy-button" onclick="copyDeliveryNumber()">
+                    <img src="https://static.thenounproject.com/png/5117212-200.png" alt="Copy" class="icon">
+                </button>
+            </div>
+            <div class="detail">
+                <strong>Date of Delivery:</strong> <span id="delivery-date">30/08/2024</span>
+            </div>
+            <div class="detail">
+                <strong>Crops to be Delivered:</strong> <span id="crops">Wheat, Corn</span>
+                <p></p>
+            </div>
+            <div class="detail">
+                <strong>Mode of Payment:</strong> <span id="payment-method">Credit Card</span>
+            </div>
+            <div class="detail">
+                <strong>Payment Status:</strong> <span id="payment-status">Paid</span>
+            </div>
+            <div class="detail">
+                <strong>Delivery address</strong> 
+                <p>jaipur,Rajasthan</p>
+            </div>
+
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-stage" id="stage-received">
+                <div class="circle" id="circle-received"></div>
+                <div class="info">
+                    <p>Order received</p>
+                    <span id="date-received">27/08/2024</span>
+                </div>
+            </div>
+            <div class="timeline-stage" id="stage-processed">
+                <div class="circle" id="circle-processed"></div>
+                <div class="info">
+                    <p>Processed</p>
+                    <span id="date-processed">28/08/2024</span>
+                </div>
+            </div>
+            <div class="timeline-stage" id="stage-dispatched">
+                <div class="circle" id="circle-dispatched"></div>
+                <div class="info">
+                    <p>Dispatched</p>
+                    <span id="date-dispatched">29/08/2024</span>
+                </div>
+            </div>
+            <div class="timeline-stage" id="stage-delivered">
+                <div class="circle" id="circle-delivered"></div>
+                <div class="info">
+                    <p>Delivered</p>
+                    <span id="date-delivered">30/08/2024</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-return-section" id="review-return-section">
+            <button class="action-button" id="review-button">Rate & Review</button>
+            <button class="action-button" id="return-button">Return an Item</button>
+        </div>
+    </div>
+
+    <script src="track.js"></script>
+</body>
+</html>
