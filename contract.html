@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Dashboard</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    scroll-behavior: smooth;
+}
+:root {
+    --bg-color: #f4f6f9;
+    --main-color: #32CD32; 
+    --text-color: #333;
+    --secondary-color: #2393d2;
+    --button-hover-color: #28a745;
+    --button-text-color: #fff;
+    --button-border-radius: 0.5rem;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    position: fixed;
+    width: 100vw;
+    height: 6rem;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+}
+
+nav img {
+    width: 2.5rem;
+    margin-right: 0.5rem;
+}
+
+nav h1 {
+    color: var(--main-color);
+    font-size: 1.75rem;
+    margin-right: auto;
+    font-weight: 700;
+}
+
+nav button {
+    height: 2.5rem;
+    padding: 0 1.5rem;
+    background-color: var(--main-color);
+    color: var(--button-text-color);
+    border-radius: var(--button-border-radius);
+    transition: background-color 0.3s, transform 0.3s;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+}
+
+main {
+    display: flex;
+    width: 100%;
+    margin-top: 6rem;
+}
+
+.sidebar {
+    width: 18rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 6rem;
+    bottom: 0;
+    z-index: 999;
+   
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 1.5rem;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 0.5rem;
+    border-radius: var(--button-border-radius);
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    color: var(--main-color);
+    background-color: #f0f8e7;
+}
+
+.main-content {
+    margin-left: 20rem; 
+    padding: 2rem;
+    width: calc(100% - 20rem);
+}
+
+.content {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.contracts-section {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 40rem;
+}
+
+.contract-card {
+    background-color: #f0f8e7; 
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.contract-card h4 {
+    margin-bottom: 0.5rem;
+    color: var(--main-color);
+    font-weight: 600;
+}
+
+.progress-bar {
+    background-color: #ddd;
+    height: 0.5rem;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress {
+    background-color: #ff9800;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.contract-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.contract-details p {
+    margin: 0;
+}
+
+button {
+    height: 2.5rem;
+    padding: 0 1rem;
+    border: none;
+    border-radius: var(--button-border-radius);
+    color: var(--button-text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accept-button {
+    background-color: #28a745; 
+}
+
+.accept-button:hover {
+    background-color: #218838; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+.reject-button {
+    background-color: #dc3545; 
+}
+
+.reject-button:hover {
+    background-color: #c82333; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 1rem auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode {
+    background-color: #1e1e1e;
+    color: #ccc;
+}
+
+.dark-mode .sidebar {
+    background-color: #2c2c2c;
+}
+
+.dark-mode .sidebar ul li a {
+    color: #ccc;
+}
+
+.dark-mode .main-content {
+    background-color: #1e1e1e;
+}
+
+.dark-mode .contracts-section {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .contract-card {
+    background-color: #32CD32;
+    color: #fff;
+}
+
+.dark-mode .progress-bar {
+    background-color: #555;
+}
+
+.dark-mode .progress {
+    background-color: #ff9800;
+}
+
+.dark-mode button {
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-mode button:hover {
+    background-color: #888;
+}
+.contract-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contract-table td {
+    padding: 0.5rem;
+    vertical-align: top;
+}
+
+.contract-table td:first-child {
+    font-weight: bold;
+}
+
+.contract-table button {
+    margin: 0.5rem 0;
+}
+.contracts-section h3 {
+    text-align: center; 
+    margin-bottom:1.5rem
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 0.75rem 1rem; 
+    border-radius: 1rem; 
+    display: block;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+}
+
+.sidebar ul li a:hover {
+    color: #fff; 
+    background-color: var(--main-color); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); 
+}
+
+.sidebar ul li a.active {
+    color: #fff;
+    background-color: var(--main-color); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); 
+}
+
+
+</style>
+<body>
+
+  <header>
+    <nav>
+        <div>
+            <img src="kheti.png" alt="Kheti Bazaar logo">
+            <h1>Kheti Bazaar</h1>
+        </div>
+        <div>
+        <button><a id="profile" href="Profile.html"  target="_self">Profile</a></button>
+        <button id="toggle-dark-mode" class="toggle-dark-mode">🌙</button>
+        </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="sidebar">
+        <ul>
+            <li><a id="contract-link">Current Contracts</a></li>
+            <li><a id="pending-link">Pending Contracts</a></li>
+            <li><a id="past-link">Past Contracts</a></li>
+            <li><a id="messages-link" href="message.html" target="_self">Messages</a></li>
+        </ul>
+    </div>
+    <div class="main-content"> 
+        <div id="contracts-content" class="content">
+            <div class="contracts-section">
+                <h3>Current Contracts</h3>
+                <div class="contracts">
+                    <div class="contract-card">
+                        <h4>Company 1</h4>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%;"></div>
+                        </div>
+                        <div class="contract-details">
+                            <p>60% Complete</p>
+                            <p>2 Days Left</p>
+                        </div>
+                    </div>
+                    <div class="contract-card">
+                      <h4>Company B</h4>
+                      <div class="progress-bar">
+                          <div class="progress" style="width: 40%;"></div>
+                      </div>
+                      <div class="contract-details">
+                          <p>40% Complete</p>
+                          <p>12 Days Left</p>
+                      </div>
+                  </div>
+                  <div class="contract-card">
+                      <h4>Company C</h4>
+                      <div class="progress-bar">
+                          <div class="progress" style="width: 10%;"></div>
+                      </div>
+                      <div class="contract-details">
+                          <p>10% Complete</p>
+                          <p>18 Days Left</p>
+                      </div>
+                  </div>
+                  <div class="contract-card">
+                      <h4>Company D</h4>
+                      <div class="progress-bar">
+                          <div class="progress" style="width: 30%;"></div>
+                      </div>
+                      <div class="contract-details">
+                          <p>30% Complete</p>
+                          <p>20 Days Left</p>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+        <div id="pending-content" class="content" style="display: none;">
+            <div class="contracts-section">
+                <h3>Pending Contracts</h3>
+                <div class="contracts">
+                    <div class="contract-card">
+                        <h4>Ramesh</h4>
+                        <table class="contract-table">
+                            <tr>
+                                <td>Location:</td>
+                                <td>Nagpur</td>
+                            </tr>
+                            <tr>
+                                <td>Product:</td>
+                                <td>Oranges</td>
+                            </tr>
+                            <tr>
+                                <td>Quantity:</td>
+                                <td>100 kg</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button class="accept-button">Accept</button>
+                                    <button class="reject-button">Reject</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="contract-card">
+                        <h4>Swapnil</h4>
+                        <table class="contract-table">
+                            <tr>
+                                <td>Location:</td>
+                                <td>Nashik</td>
+                            </tr>
+                            <tr>
+                                <td>Product:</td>
+                                <td>Grapes</td>
+                            </tr>
+                            <tr>
+                                <td>Quantity:</td>
+                                <td>50 kg</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button class="accept-button">Accept</button>
+                                    <button class="reject-button">Reject</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="contract-card">
+                        <h4>Laxman</h4>
+                        <table class="contract-table">
+                            <tr>
+                                <td>Location:</td>
+                                <td>Mahabaleshwar</td>
+                            </tr>
+                            <tr>
+                                <td>Product:</td>
+                                <td>Strawberry</td>
+                            </tr>
+                            <tr>
+                                <td>Quantity:</td>
+                                <td>20 kg</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button class="accept-button">Accept</button>
+                                    <button class="reject-button">Reject</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="contract-card">
+                        <h4>Roshan</h4>
+                        <table class="contract-table">
+                            <tr>
+                                <td>Location:</td>
+                                <td>Ratnagiri</td>
+                            </tr>
+                            <tr>
+                                <td>Product:</td>
+                                <td>Mango</td>
+                            </tr>
+                            <tr>
+                                <td>Quantity:</td>
+                                <td>150 dozen</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button class="accept-button">Accept</button>
+                                    <button class="reject-button">Reject</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="contract-card">
+                        <h4>Surya</h4>
+                        <table class="contract-table">
+                            <tr>
+                                <td>Location:</td>
+                                <td>Saswad</td>
+                            </tr>
+                            <tr>
+                                <td>Product:</td>
+                                <td>Custard Apple</td>
+                            </tr>
+                            <tr>
+                                <td>Quantity:</td>
+                                <td>60 kg</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button class="accept-button">Accept</button>
+                                    <button class="reject-button">Reject</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div id="past-content" class="content" style="display: none;">
+          <div class="contracts-section">
+              <h3>Past Contracts</h3>
+              <div class="contracts">
+                  <!-- First Card Example -->
+                  <div class="contract-card">
+                      <h4>Ramesh</h4>
+                      <div class="contract-details">
+                          <p>Nagpur</p>
+                          <p>Oranges</p>
+                          <p>10 kg</p>
+                          <p>01/08/2024</p>
+                          <p>15/07/2024</p>
+                      </div>
+                  </div>
+      
+                  <!-- Second Card with Filled Data -->
+                  <div class="contract-card">
+                      <h4>Suresh</h4>
+                      <div class="contract-details">
+                          <p>Pune</p>
+                          <p>Tomatoes</p>
+                          <p>50 kg</p>
+                          <p>20/08/2024</p>
+                          <p>01/08/2024</p>
+                      </div>
+                  </div>
+      
+                  <!-- Third Card with Filled Data -->
+                  <div class="contract-card">
+                      <h4>Geeta</h4>
+                      <div class="contract-details">
+                          <p>Ahmednagar</p>
+                          <p>Wheat</p>
+                          <p>100 kg</p>
+                          <p>10/09/2024</p>
+                          <p>25/08/2024</p>
+                      </div>
+                  </div>
+      
+                  <!-- Fourth Card with Filled Data -->
+                  <div class="contract-card">
+                      <h4>Rajesh</h4>
+                      <div class="contract-details">
+                          <p>Nashik</p>
+                          <p>Grapes</p>
+                          <p>20 kg</p>
+                          <p>05/09/2024</p>
+                          <p>15/08/2024</p>
+                      </div>
+                  </div>
+      
+                  <!-- Fifth Card with Filled Data -->
+                  <div class="contract-card">
+                      <h4>Kamala</h4>
+                      <div class="contract-details">
+                          <p>Sangli</p>
+                          <p>Sugarcane</p>
+                          <p>200 kg</p>
+                          <p>15/09/2024</p>
+                          <p>01/09/2024</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+
+        <div id="messages-content" class="content" style="display: none;">
+            <div class="contracts-section">
+                <h3>Messages</h3>
+                <!-- Code for messages goes here -->
+            </div>
+        </div>
+    </div>
+    
+    <div id="newContractForm" class="modal">
+        <div class="modal-content">
+            <form action="/submit-contract" method="POST">
+                <span class="close">&times;</span>
+                <h2>New Contract</h2>
+                <label for="cropName">Crop Name:</label>
+                <input type="text" id="cropName" name="cropName" placeholder="Enter the crop name" required>
+                
+                <label for="quantity">Quantity (in tons):</label>
+                <input type="number" id="quantity" name="quantity" placeholder="Enter the quantity required" required>
+                
+                <label for="quality">Quality:</label>
+                <input type="text" id="quality" name="quality" placeholder="Enter the quality standard" required>
+                
+                <label for="deliveryDate">Delivery Date:</label>
+                <input type="date" id="deliveryDate" name="deliveryDate" required>
+                
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" placeholder="Enter the delivery location" required>
+                
+                <label for="description">Add Description:</label>
+                <textarea id="description" name="description" rows="3" placeholder="Enter anything else you want to mention" required></textarea>
+                
+                <input type="submit" value="Generate Contract">
+            </form>
+        </div>
+    </div>
+    </main>
+    
+    <script>
+        document.getElementById('contract-link').addEventListener('click', function() {
+            document.getElementById('contracts-content').style.display = 'flex';
+            document.getElementById('pending-content').style.display = 'none';
+            document.getElementById('past-content').style.display = 'none';
+            document.getElementById('messages-content').style.display = 'none';
+        });
+        
+        document.getElementById('pending-link').addEventListener('click', function() {
+            document.getElementById('contracts-content').style.display = 'none';
+            document.getElementById('pending-content').style.display = 'flex';
+            document.getElementById('past-content').style.display = 'none';
+            document.getElementById('messages-content').style.display = 'none';
+        });
+        
+        document.getElementById('past-link').addEventListener('click', function() {
+            document.getElementById('contracts-content').style.display = 'none';
+            document.getElementById('pending-content').style.display = 'none';
+            document.getElementById('past-content').style.display = 'flex';
+            document.getElementById('messages-content').style.display = 'none';
+        });
+
+        document.getElementById('messages-link').addEventListener('click', function() {
+            document.getElementById('contracts-content').style.display = 'none';
+            document.getElementById('pending-content').style.display = 'none';
+            document.getElementById('past-content').style.display = 'none';
+            document.getElementById('messages-content').style.display = 'flex';
+        });
+
+        // Toggle night mode
+        const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
+        const bodyElement = document.body;
+
+        toggleDarkModeButton.addEventListener('click', () => {
+            bodyElement.classList.toggle('dark-mode');
+            // Change the icon depending on the mode
+            if (bodyElement.classList.contains('dark-mode')) {
+                toggleDarkModeButton.textContent = '☀️'; // Sun icon for day mode
+            } else {
+                toggleDarkModeButton.textContent = '🌙'; // Moon icon for night mode
+            }
+        });
+
+        // Toggle Form Modal
+        const modal = document.getElementById('newContractForm');
+        const btn = document.getElementById('newContractButton');
+        const span = document.getElementsByClassName('close')[0];
+
+        btn.onclick = function() {
+            modal.style.display = 'block';
+        }
+
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
