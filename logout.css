@@ -1,0 +1,52 @@
+/* logout.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f5f0; /* Light green background for an agriculture theme */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.logout-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+.logout-container h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.logout-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.logout-container button:hover {
+    background-color: #45a049;
+}
+
+.logout-container a {
+    display: block;
+    margin-top: 20px;
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.logout-container a:hover {
+    text-decoration: underline;
+}
