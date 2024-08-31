@@ -1,0 +1,732 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; 
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    color: #333;
+    line-height: 1.6;
+    font-weight: 400;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    background-image: url('kheetibazarBG.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4a6f41 !important;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.logo {
+    height: 8rem;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    width: auto;
+}
+.logo:hover {
+    transform: scale(1.05);
+}
+.logo-container {
+    padding: 0.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.main-nav {
+    display: flex;
+}
+.main-nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.main-nav-link {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-weight: 500;
+    font-size: 1.6rem;
+    transition: color 0.3s, transform 0.3s;
+}
+.main-nav-link:hover,
+.main-nav-link:active {
+    color: #7f9a5d;
+    transform: scale(1.05);
+}
+.main-nav-link.nav-cta {
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    color: #fff;
+    background-color: #7f9a5d;
+    font-weight: bold;
+}
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+    background-color: #5a6d42;
+}
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    text-align: center;
+    padding: 0 2rem;
+    background-color: #4a6f41;
+}
+.hero-content {
+    max-width: 800px;
+}
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+.hero p {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+.hero-cta {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: #7f9a5d;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.hero-cta:hover {
+    background-color: #5a6d42;
+    transform: scale(1.05);
+}
+.features {
+    padding: 5rem 2rem;
+    background-color: #e0f2e9;
+    margin-bottom: 5rem;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}.feature {
+    flex: 1 1 calc(33.333% - 2rem);
+    padding: 2rem;
+    text-align: center;
+    background-color: #4a6f41;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.feature-icon {
+    width: 4rem;
+    margin-bottom: 1rem;
+}
+.feature h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+.feature p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+.testimonials {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+    margin-bottom: 5rem;
+}
+.testimonials h2 {
+    font-size: 2.5rem;
+    color: #333; 
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+}
+.testimonial-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+.testimonial-card {
+    background: #ffffff; 
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 400px;
+    flex: 1 1 calc(33.333% - 2rem);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.testimonial-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555; 
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+.testimonial-card cite {
+    font-size: 1rem;
+    color: #2c6f5b; 
+    font-weight: bold;
+    display: block;
+    margin-top: 1rem;
+}
+.testimonial-card {
+    padding: 2rem; 
+}
+.footer {
+    background-color: #4a6f41;
+    color: #fff;
+    padding: 3rem 0;
+    position: relative; 
+    overflow: hidden; 
+}
+.footer .container {
+    max-width: 1200px;
+    margin: 0; 
+    padding: 0 10px; 
+    position: relative; 
+    width: 100%; 
+    align-content: center;
+}
+.footer-nav {
+    list-style: none;
+    display: flex;
+    .footer {
+        background-color: #4a6f41;
+        color: #fff;
+        padding: 3rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+    .footer .container {
+        max-width: 1200px;
+        margin: 0 auto; 
+        padding: 0 10px; 
+        width: 100%;
+    }
+    .footer-nav {
+        list-style: none;
+        display: flex;
+        justify-content: center; 
+        gap: 2rem;
+        padding: 0;
+        margin: 0; 
+    }
+    .footer-nav li {
+        display: inline;
+    }
+    .footer-nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.4rem;
+        transition: color 0.3s;
+    }
+    .footer-nav a:hover {
+        color: #a5c27f;
+        text-decoration: underline;
+    }
+    
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.footer-nav li {
+    display: inline;
+}
+
+.footer-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: color 0.3s;
+}
+.footer-nav a:hover {
+    color: #a5c27f;
+    text-decoration: underline;
+}
+.gif-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.gif-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    background-color: #e3f2fd; 
+}
+/* General Styles */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-image: url(b.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #388e3c;
+}
+
+.login-box {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+}
+
+.logo {
+    width: 120px;
+    margin-bottom: 25px;
+}
+
+.login-box h2 {
+    color: #388e3c;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #4caf50;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #388e3c;
+}
+
+button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.login-box p {
+    color: #4a6f41; /* Ensure paragraph text color is visible */
+}
+
+.login-box p a {
+    color: #388e3c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-box p a:hover {
+    text-decoration: underline;
+}
+
+.login-box button {
+    background-color: #4CAF50; /* Green color matching the theme */
+    color: white; /* White text for contrast */
+    padding: 15px 30px; /* Increased padding for a larger, more prominent button */
+    margin: 10px 0; /* Space between buttons */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    font-size: 1.2em; /* Slightly larger font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 100%; /* Full-width button */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+.login-box button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Centered Text */
+.login-box h2 {
+    text-align: center; /* Center text */
+}
+
+/* Guest Mode Link */
+.guest-mode-link,.admin-login-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #f57c00; /* Distinctive orange for guest mode */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.guest-mode-link:hover ,.admin-login-lin:hover{
+    text-decoration: underline;
+}
+/* Vision & Mission Section */
+.vision-mission {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Light background to differentiate from other sections */
+    text-align: center;
+}
+
+.vision-mission .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vision-mission h2 {
+    font-size: 2.5em;
+    color: #333; /* Dark text for strong contrast */
+    margin-bottom: 20px;
+}
+
+.vision-mission p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.vision-mission .vision,
+.vision-mission .mission {
+    margin-bottom: 40px;
+}
+
+.vision-mission .vision p,
+.vision-mission .mission p {
+    font-weight: 300;
+    font-style: italic;
+    color: #666;
+}
+
+/* Add subtle styling to keep it professional */
+.vision-mission .container::before,
+.vision-mission .container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.vision-mission .vision h2::after,
+.vision-mission .mission h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #4CAF50; /* Matches with the green from the buttons */
+    margin: 20px auto 0;
+}
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #4CAF50;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    width: 150px;
+}
+
+.main-nav {
+    margin-top: 10px;
+}
+
+.main-nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.main-nav-list li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.main-nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.buyer-portal-container {
+    display: flex;
+    margin: 20px;
+}
+
+.filter-section {
+    width: 25%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group h3 {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+.filter-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.filter-button:hover {
+    background-color: #45a049;
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; 
+  }
+  
+  
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh; 
+    overflow: hidden;
+    position: relative;
+    background-color: #f3f3f3;
+  }
+  
+  .slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    line-height: 1.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .fade {
+    animation: fade 1.5s ease;
+  }
+  
+  @keyframes fade {
+    from { opacity: 0.4; } 
+    to { opacity: 1; }
+  }
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+  }
+  
+  .prev {
+    left: 20px;
+  }
+  
+  .next {
+    right: 20px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+  }
+  .content-section {
+    padding: 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    flex-grow: 1; 
+  }
+  
+  h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    font-weight: normal; 
+    color: #333; 
+  }
+  
+  p {
+    font-size: 1.1em; 
+    color: #555; 
+    line-height: 1.5; 
+  }
+  h1, p {
+    margin: 0;
+    padding: 0;
+    color: #ffffff; 
+    text-shadow: none; 
+  }
+  
+  h1 {
+    font-size: 2.5em; 
+    margin-top: 20vh; 
+    font-weight: 600; 
+  }
+  
+  p {
+    font-size: 1.2em; 
+    max-width: 600px;
+    margin: 20px auto;
+  }
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+  
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 10px; 
+  }
+  .hero {
+    padding-top: 20px; 
+  }
+  .education-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.education-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #4caf50; 
+}
+
+.education-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.education-group input:focus {
+    border-color: #388e3c; 
+}
