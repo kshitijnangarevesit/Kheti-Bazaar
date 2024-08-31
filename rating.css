@@ -1,0 +1,176 @@
+/* styles.css */
+
+/* Basic reset and styling */
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: #e9f5e1; /* Soft green background for farming theme */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #333;
+}
+
+.review-container {
+    width: 70%;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #d4d4d4;
+}
+
+/* Overall Rating Section */
+.overall-rating {
+    margin-bottom: 25px;
+}
+
+.overall-rating h2 {
+    margin: 0;
+    font-size: 28px;
+    color: #3b6e3b; /* Dark green for header text */
+}
+
+.average-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 20px;
+    color: #3b6e3b;
+}
+
+.stars {
+    color: #ffb400; /* Gold color for stars */
+    font-size: 22px;
+    margin-right: 8px;
+}
+
+.rating-value {
+    font-size: 20px;
+    color: #3b6e3b;
+}
+
+.total-reviews {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Ratings by Feature */
+.ratings-by-feature {
+    background-color: #f1f9ef; /* Lighter green for feature section */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 1px solid #c6e2c6;
+}
+
+.ratings-by-feature h3 {
+    margin: 0;
+    color: #3b6e3b;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.feature:last-child {
+    border-bottom: none; /* Remove border for last item */
+}
+
+.feature-rating {
+    display: flex;
+    align-items: center;
+}
+
+.feature-rating .stars {
+    font-size: 18px;
+}
+
+.rating-value {
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+/* Reviews List */
+.reviews-list {
+    margin-top: 30px;
+}
+
+.reviews-list h3 {
+    margin: 0;
+    color: #3b6e3b;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.review {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.review-title {
+    font-weight: bold;
+    color: #3b6e3b;
+    font-size: 18px;
+}
+
+.review-description {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.review-description::before {
+    content: "“";
+    font-size: 20px;
+    color: #c6e2c6;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.review-description::after {
+    content: "”";
+    font-size: 20px;
+    color: #c6e2c6;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+/* Add responsive design */
+@media (max-width: 768px) {
+    .review-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .review-title,
+    .rating-value,
+    .stars {
+        font-size: 16px;
+    }
+
+    .reviews-list h3,
+    .ratings-by-feature h3,
+    .overall-rating h2 {
+        font-size: 20px;
+    }
+}
