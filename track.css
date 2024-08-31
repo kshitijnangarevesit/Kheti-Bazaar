@@ -2,10 +2,10 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     margin: 0;
-    padding: 0;
+    padding: 40px;
 }
 
-.container {
+.coontainer {
     width: 80%;
     margin: 20px auto;
     background-color: #fff;
@@ -124,3 +124,4 @@ h1 {
 .copy-button:hover .icon {
     opacity: 0.8;
 }
+
